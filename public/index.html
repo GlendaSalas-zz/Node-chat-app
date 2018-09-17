@@ -5,5 +5,12 @@
   </head>
   <body>
     <p>WELCOME TO THE CHAT APP</p>
+    <script src="/socket.io/socket.io.js"> </script>
+    <script>
+      var socket= io();
+      socket.on('connect',()=>{
+        console.log('conected to server');
+      });
+    </script>
   </body>
 </html>
