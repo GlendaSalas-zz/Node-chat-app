@@ -6,6 +6,7 @@ const publicPath=path.join(__dirname,'../public');
 const  express = require('express');
 const  socketIO = require('socket.io');
 const {generateMessage}= require('./utils/message.js');
+const {generateLocationMessage}= require('./utils/message.js');
 const port=process.env.PORT;
 
 
@@ -28,6 +29,9 @@ io.on('connection',(socket)=>{
     //    text:message.text,
     //    createAt: new Date().getTime()
     // });
+  });
+  socket.on('createLocationMessage',(coords)=>{
+    io.emit('newLocationMessage', generateLocationMessage('Admin', coords.latitude,coords.longitude));
   });
   socket.on('disconnect',()=>{
     console.log('User disconnect');
