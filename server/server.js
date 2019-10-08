@@ -1,4 +1,4 @@
-require('./../config/config');
+//require('./../config/config');
 
 const path = require('path');
 const http = require('http');
@@ -8,7 +8,7 @@ const  socketIO = require('socket.io');
 const {generateMessage,generateLocationMessage}= require('./utils/message.js');
 const {isRealString}= require('./utils/validation.js');
 const {Users}= require('./utils/users.js');
-const port=process.env.PORT;
+const port=2000;
 
 
 var app= express();
